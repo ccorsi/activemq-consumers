@@ -4,7 +4,7 @@
 
   <groupId>com.fusesource.support.consumer</groupId>
   <artifactId>activemq-consumers</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>5.4.2-fuse-04-05</version>
   <packaging>jar</packaging>
 
   <name>activemq-consumers</name>
@@ -12,6 +12,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <activemq.version>${project.version}</activemq.version>
+    <slf4j.version>1.6.1</slf4j.version>
   </properties>
 
   <build>
@@ -40,13 +42,20 @@
   	<dependency>
   		<groupId>org.apache.activemq</groupId>
   		<artifactId>activemq-core</artifactId>
-  		<version>5.4.2-fuse-00-00</version>
+  		<version>${activemq.version}</version>
   		<optional>false</optional>
   	</dependency>
   	<dependency>
   		<groupId>org.slf4j</groupId>
   		<artifactId>slf4j-api</artifactId>
-  		<version>1.6.1</version>
+  		<version>${slf4j.version}</version>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.slf4j</groupId>
+  		<artifactId>slf4j-simple</artifactId>
+  		<version>${slf4j.version}</version>
+		<scope>test</scope>
   		<optional>false</optional>
   	</dependency>
   	<dependency>
@@ -63,23 +72,16 @@
   		<optional>false</optional>
   	</dependency>
   	<dependency>
-  		<groupId>com.fusesource.support.hubspoke</groupId>
-  		<artifactId>hub-spoke-configuration</artifactId>
-  		<version>1.0-SNAPSHOT</version>
-  		<scope>test</scope>
-  		<optional>false</optional>
-  	</dependency>
-  	<dependency>
   		<groupId>com.fusesource.support.producers</groupId>
   		<artifactId>activemq-producers</artifactId>
-  		<version>1.0-SNAPSHOT</version>
+  		<version>${activemq.version}</version>
   		<scope>test</scope>
   		<optional>false</optional>
   	</dependency>
   	<dependency>
   		<groupId>org.apache.activemq</groupId>
   		<artifactId>broker-service-runner</artifactId>
-  		<version>1.0-SNAPSHOT</version>
+  		<version>${activemq.version}</version>
   		<scope>test</scope>
   		<optional>false</optional>
   	</dependency>

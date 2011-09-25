@@ -85,13 +85,17 @@ public class StompConsumerExecutorTest extends BaseConsumerExecutorTestSupport {
 				return "stomp-spoke-activemq";
 			}
 
-			{
-				logger.info("INSIDE INITIALIZATION");
-				this.setAmqPort("61616");
-				this.setNumberOfHubs(1);
-				this.setNumberOfSpokesPerHub(1);
+                        @Override
+                        protected void preCreateSpawners() {
 				port = this.getAmqPort();
 				logger.info("port=" + port);
+                        }
+
+			{
+                            // logger.info("INSIDE INITIALIZATION");
+				this.setAmqPort(61616);
+				this.setNumberOfHubs(1);
+				this.setNumberOfSpokesPerHub(1);
 			}
 		};
 		

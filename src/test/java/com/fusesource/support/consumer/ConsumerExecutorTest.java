@@ -86,7 +86,7 @@ public class ConsumerExecutorTest extends BaseConsumerExecutorTestSupport {
 
 			{
 				logger.info("INSIDE INITIALIZATION");
-				this.setAmqPort("61616");
+				this.setAmqPort(61616);
 				this.setNumberOfHubs(1);
 				this.setNumberOfSpokesPerHub(1);
 				port = this.getAmqPort();
