@@ -4,7 +4,7 @@
 
   <groupId>com.fusesource.support.consumer</groupId>
   <artifactId>activemq-consumers</artifactId>
-  <version>5.4.2-fuse-04-05</version>
+  <version>5.5.0-fuse-00-27</version>
   <packaging>jar</packaging>
 
   <name>activemq-consumers</name>
