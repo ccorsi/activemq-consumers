@@ -28,6 +28,6 @@ public interface FrameConsumer {
 	/**
 	 * @param frame
 	 */
-	void onFrame(StompFrame frame);
+	void onFrame(StompFrame frame) throws Exception;
 
 }
