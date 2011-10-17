@@ -63,6 +63,10 @@ public class SimpleMessageConsumerMessageProcessor implements MessageProcessor {
 	public void stopConsumingMessages() throws JMSException {
 		logger.info("Indicating to stop processing messages");
 		this.moreMessages = false;
+                if (this.consumer != null) {
+                    this.consumer.setMessageListener(null);
+                    this.consumer = null; // TODO: Does this make any sense???
+                }
 	}
 
 	/* (non-Javadoc)
