@@ -32,7 +32,6 @@ public class CompositeStompMessageProcessor implements StompMessageProcessor {
 
 	private static final FrameConsumer DEFAULT_FRAME_CONSUMER = new FrameConsumer() {
 
-		@Override
 		public void onFrame(StompFrame frame) {
 			logger.info("Frame body: " + frame.getBody());
 			logger.debug("Received stomp frame : " + frame);
@@ -64,7 +63,6 @@ public class CompositeStompMessageProcessor implements StompMessageProcessor {
 	/* (non-Javadoc)
 	 * @see com.fusesource.support.consumer.StompMessageProcessor#process(org.apache.activemq.transport.stomp.StompConnection)
 	 */
-	@Override
 	public void process(StompConnection connection) throws Exception {
 		while(consumeMessages) {
 			StompFrame frame = connection.receive();
@@ -76,7 +74,6 @@ public class CompositeStompMessageProcessor implements StompMessageProcessor {
 	/* (non-Javadoc)
 	 * @see com.fusesource.support.consumer.StompMessageProcessor#stopConsumingMessages()
 	 */
-	@Override
 	public void stopConsumingMessages() {
 		consumeMessages = false;
 	}
@@ -84,7 +81,6 @@ public class CompositeStompMessageProcessor implements StompMessageProcessor {
 	/* (non-Javadoc)
 	 * @see com.fusesource.support.consumer.StompMessageProcessor#consumeMoreMessages()
 	 */
-	@Override
 	public boolean consumeMoreMessages() {
 		return consumeMessages;
 	}

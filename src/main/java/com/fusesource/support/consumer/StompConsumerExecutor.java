@@ -38,7 +38,6 @@ public class StompConsumerExecutor implements ConsumerExecutor {
 	/* (non-Javadoc)
 	 * @see com.fusesource.support.consumer.ConsumerExecutor#execute()
 	 */
-	@Override
 	public void execute() throws Exception {
 		try {
 			while (consumeMessages && processor.consumeMoreMessages()) {
@@ -53,7 +52,6 @@ public class StompConsumerExecutor implements ConsumerExecutor {
 	/* (non-Javadoc)
 	 * @see com.fusesource.support.consumer.ConsumerExecutor#init()
 	 */
-	@Override
 	public void init() throws Exception {
 		connection = consumerFactory.create();
 		consumeMessages = true;
@@ -62,7 +60,6 @@ public class StompConsumerExecutor implements ConsumerExecutor {
 	/* (non-Javadoc)
 	 * @see com.fusesource.support.consumer.ConsumerExecutor#stopConsumingMessages()
 	 */
-	@Override
 	public void stopConsumingMessages() {
 		processor.stopConsumingMessages();
 		consumeMessages = false;

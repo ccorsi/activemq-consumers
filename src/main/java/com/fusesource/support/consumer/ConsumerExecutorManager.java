@@ -21,6 +21,9 @@ import java.util.Set;
 
 import javax.jms.JMSException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * This class will manage the starting and stopping of the ConsumerExecutor instances. 
  * It will follow the expected protocol for starting/executing and stopping the different
@@ -30,6 +33,8 @@ import javax.jms.JMSException;
  *
  */
 public class ConsumerExecutorManager {
+	
+	private static final Logger logger = LoggerFactory.getLogger(ConsumerExecutorManager.class);
 	
 	private Set<ConsumerExecutor> executors = new HashSet<ConsumerExecutor>();
 	private boolean started = false;
@@ -70,7 +75,6 @@ public class ConsumerExecutorManager {
 			 * 
 			 * @see java.lang.Runnable#run()
 			 */
-			@Override
 			public void run() {
 				try {
 					// Call init method....
@@ -78,18 +82,14 @@ public class ConsumerExecutorManager {
 					// Call execute method...
 					consumerExecutor.execute();
 				} catch (Exception e) {
-					System.out
-							.println("Received an exception while executing message executor");
-					e.printStackTrace(System.out);
+					logger.debug("Received an exception while executing consumer message executor", e);
 				} finally {
 					try {
 						// TODO: Should this be called here or should this be
 						// explicit?
 						consumerExecutor.stopConsumingMessages();
 					} catch (JMSException e) {
-						System.out
-								.println("Received an exception while calling stop consumer messages for the consumer executor");
-						e.printStackTrace(System.out);
+						logger.debug("Received an exception while calling stop consumer messages for the consumer executor", e);
 					}
 				}
 			}
@@ -118,7 +118,7 @@ public class ConsumerExecutorManager {
 				try {
 					executor.stopConsumingMessages();
 				} catch (JMSException e) {
-					e.printStackTrace(System.out);
+					logger.debug("An exception was raised when trying to stop the executor", e);
 				}
 			}
 			
@@ -131,7 +131,7 @@ public class ConsumerExecutorManager {
 		try {
 			executor.stopConsumingMessages();
 		} catch (JMSException e) {
-			e.printStackTrace(System.out);
+			logger.debug("An exception was raised when trying to stop consumers", e);
 		}
 		return result;
 	}

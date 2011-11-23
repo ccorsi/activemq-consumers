@@ -35,7 +35,6 @@ public class SimpleStompMessageProcessor implements StompMessageProcessor {
 	/* (non-Javadoc)
 	 * @see com.fusesource.support.consumer.StompMessageProcessor#process(org.apache.activemq.transport.stomp.StompConnection)
 	 */
-	@Override
 	public void process(StompConnection connection) throws Exception {
 		while(consumeMessages) {
 			StompFrame frame = connection.receive();
@@ -47,7 +46,6 @@ public class SimpleStompMessageProcessor implements StompMessageProcessor {
 	/* (non-Javadoc)
 	 * @see com.fusesource.support.consumer.StompMessageProcessor#stopConsumingMessages()
 	 */
-	@Override
 	public void stopConsumingMessages() {
 		consumeMessages = false;
 	}
@@ -55,7 +53,6 @@ public class SimpleStompMessageProcessor implements StompMessageProcessor {
 	/* (non-Javadoc)
 	 * @see com.fusesource.support.consumer.StompMessageProcessor#consumeMoreMessages()
 	 */
-	@Override
 	public boolean consumeMoreMessages() {
 		return consumeMessages;
 	}

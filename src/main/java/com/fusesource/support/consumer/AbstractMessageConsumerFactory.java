@@ -34,7 +34,6 @@ public abstract class AbstractMessageConsumerFactory implements
 	/* (non-Javadoc)
 	 * @see com.fusesource.support.consumer.MessageConsumerFactory#create()
 	 */
-	@Override
 	public abstract MessageConsumer create() throws JMSException;
 
 	public void setSession(Session session) {

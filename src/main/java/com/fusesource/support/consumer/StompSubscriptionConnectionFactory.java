@@ -133,7 +133,6 @@ public class StompSubscriptionConnectionFactory implements StompConsumerFactory 
 			private String username;
 			private String clientID;
 
-			@Override
 			public StompConnection create() throws Exception {
 				Socket socket = new Socket(host, port);
 				StompConnection connection = new StompConnection();
@@ -148,7 +147,6 @@ public class StompSubscriptionConnectionFactory implements StompConsumerFactory 
 			}
 
 
-			@Override
 			public void destroy(StompConnection connection) throws Exception {
 				connection.unsubscribe(destination);
 				connection.close();
@@ -180,7 +178,6 @@ public class StompSubscriptionConnectionFactory implements StompConsumerFactory 
 			private String password;
 			private String clientID;
 
-			@Override
 			public StompConnection create() throws Exception {
 				StompConnection connection = new StompConnection();
 				connection.setStompSocket(socket);
@@ -193,7 +190,6 @@ public class StompSubscriptionConnectionFactory implements StompConsumerFactory 
 				return connection;
 			}
 
-			@Override
 			public void destroy(StompConnection connection) throws Exception {
 				connection.unsubscribe(destination);
 				connection.close();
@@ -216,7 +212,6 @@ public class StompSubscriptionConnectionFactory implements StompConsumerFactory 
 	/* (non-Javadoc)
 	 * @see com.fusesource.support.consumer.StompConsumerFactory#create()
 	 */
-	@Override
 	public StompConnection create() throws Exception {
 		return this.command.create();
 	}
@@ -224,7 +219,6 @@ public class StompSubscriptionConnectionFactory implements StompConsumerFactory 
 	/* (non-Javadoc)
 	 * @see com.fusesource.support.consumer.StompConsumerFactory#destroy(org.apache.activemq.transport.stomp.StompConnection)
 	 */
-	@Override
 	public void destroy(StompConnection connection) throws Exception {
 		this.command.destroy(connection);
 	}

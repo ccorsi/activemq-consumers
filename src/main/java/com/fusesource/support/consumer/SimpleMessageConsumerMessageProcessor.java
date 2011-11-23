@@ -38,14 +38,12 @@ public class SimpleMessageConsumerMessageProcessor implements MessageProcessor {
 	/* (non-Javadoc)
 	 * @see com.fusesource.support.consumer.MessageProcessor#processMessages(javax.jms.MessageConsumer)
 	 */
-	@Override
 	public void processMessages(MessageConsumer consumer) throws JMSException {
 		if (this.consumer == null) {
 			logger.info("Calling processMessages");
 			this.consumer = consumer;
 			listener = new MessageListener() {
 
-				@Override
 				public void onMessage(Message message) {
 					logger.info("Processed message: " + message);
 				}
@@ -59,7 +57,6 @@ public class SimpleMessageConsumerMessageProcessor implements MessageProcessor {
 	/* (non-Javadoc)
 	 * @see com.fusesource.support.consumer.MessageProcessor#stopConsumingMessages()
 	 */
-	@Override
 	public void stopConsumingMessages() throws JMSException {
 		logger.info("Indicating to stop processing messages");
 		this.moreMessages = false;
@@ -72,7 +69,6 @@ public class SimpleMessageConsumerMessageProcessor implements MessageProcessor {
 	/* (non-Javadoc)
 	 * @see com.fusesource.support.consumer.MessageProcessor#consumeMoreMessages()
 	 */
-	@Override
 	public boolean consumeMoreMessages() {
 		return moreMessages;
 	}

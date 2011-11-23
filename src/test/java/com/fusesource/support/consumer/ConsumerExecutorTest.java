@@ -167,7 +167,6 @@ public class ConsumerExecutorTest extends BaseConsumerExecutorTestSupport {
 		MessageListenerMessageConsumerMessageProcessor messageProcessor = new MessageListenerMessageConsumerMessageProcessor(
 				new MessageListener() {
 
-					@Override
 					public void onMessage(Message message) {
 						logger.info("Processing message: " + message);
 					}
